@@ -85,6 +85,7 @@ set(
     src/util/StrongTypes.h
 
     src/DSP/util/ClampedInt.h
+    src/DSP/util/ExponentialSmoother.h
     src/DSP/util/MathFunctions.h
     src/DSP/util/WrappedInt.h
 )
@@ -156,6 +157,8 @@ set(
     test_sourcefiles
 
     tests/Example_gtest.cpp
+
+    tests/DSP/util/ExponentialSmoother_gtest.cpp
 )
 
 # This target adds a googletest executable
