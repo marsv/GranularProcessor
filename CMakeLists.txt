@@ -81,6 +81,8 @@ set(
     src/GUI/PluginEditor.cpp
     src/PluginProcessor.h
     src/PluginProcessor.cpp
+
+    src/util/StrongTypes.h
 )
 
 target_sources(GranularProcessor
