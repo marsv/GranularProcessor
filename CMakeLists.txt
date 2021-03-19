@@ -84,6 +84,8 @@ set(
 
     src/util/StrongTypes.h
 
+    src/DSP/RingBuffer.h
+
     src/DSP/util/ClampedInt.h
     src/DSP/util/ExponentialSmoother.h
     src/DSP/util/MathFunctions.h
@@ -136,6 +138,7 @@ target_link_libraries(GranularProcessor
         # AudioPluginData           # If we'd created a binary data target, we'd link to it here
         juce::juce_audio_utils
     PUBLIC
+        juce::juce_dsp
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
