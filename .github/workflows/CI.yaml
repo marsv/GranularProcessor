@@ -31,7 +31,7 @@ jobs:
 
     - name: Run Tests
       run: |
-        build/Release/GranularProcessor_Gtest.exe --gtest_output=xml:TestResults\gtestResults_windows.xml
+        bin\RELEASE\GranularProcessor_Gtest.exe --gtest_output=xml:TestResults\gtestResults_windows.xml
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v2
@@ -44,10 +44,9 @@ jobs:
       with:
         name: GranularProcessor_Windows
         path: |
-          build\GranularProcessor_artefacts\Release\VST3\Granular Processor.vst3\Contents\x86_64-win\Granular Processor.vst3
-          build\GranularProcessor_artefacts\Release\Standalone\Granular Processor.exe
-          build/Release/GranularProcessor_Gtest.exe
-          TestResults\gtestResults_windows.xml
+          bin\RELEASE\Granular Processor.vst3
+          bin\RELEASE\Granular Processor.exe
+          bin\RELEASE\GranularProcessor_Gtest.exe
 
   ###############################################################################
   # builds the plugin on macos
@@ -79,7 +78,7 @@ jobs:
 
     - name: Run Tests
       run: |
-        build/Release/GranularProcessor_Gtest --gtest_output=xml:TestResults/gtestResults_macos.xml
+        bin/RELEASE/GranularProcessor_Gtest --gtest_output=xml:TestResults/gtestResults_macos.xml
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v2
@@ -92,10 +91,9 @@ jobs:
       with:
         name: GranularProcessor_MacOS
         path: |
-          build/GranularProcessor_artefacts/Release/VST3/Granular Processor.vst3/**
-          build/GranularProcessor_artefacts/Release/Standalone/Granular Processor.app/**
-          build/Release/GranularProcessor_Gtest
-          TestResults/gtestResults_macos.xml
+          bin/RELEASE/Granular Processor.vst3/**
+          bin/RELEASE/Granular Processor.app/**
+          bin/RELEASE/GranularProcessor_Gtest
 
   ###############################################################################
   # builds the plugin on ubuntu
@@ -143,7 +141,6 @@ jobs:
           build/GranularProcessor_artefacts/VST3/Granular Processor.vst3
           build/GranularProcessor_artefacts/Standalone/Granular Processor
           build/GranularProcessor_Gtest
-          TestResults/gtestResults_ubuntu.xml
 
   ###############################################################################
   # uploads test results from the previous jobs
