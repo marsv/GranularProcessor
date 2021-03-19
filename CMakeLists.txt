@@ -83,6 +83,8 @@ set(
     src/PluginProcessor.cpp
 
     src/util/StrongTypes.h
+
+    src/DSP/util/WrappedInt.h
 )
 
 target_sources(GranularProcessor
