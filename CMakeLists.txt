@@ -69,7 +69,10 @@ juce_generate_juce_header(GranularProcessor)
 
 # the following lines are here to preserve the file tree in the generated IDE project files
 
-include_directories(src/)
+include_directories(
+    src/
+    lib/gcem/include
+)
 
 set(
     plugin_sourcefiles
