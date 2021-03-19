@@ -73,9 +73,9 @@ include_directories(src/)
 
 set(
     plugin_sourcefiles
-
-    src/PluginEditor.h
-    src/PluginEditor.cpp
+    
+    src/GUI/PluginEditor.h
+    src/GUI/PluginEditor.cpp
     src/PluginProcessor.h
     src/PluginProcessor.cpp
 )
