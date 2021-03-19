@@ -84,6 +84,7 @@ set(
 
     src/util/StrongTypes.h
 
+    src/DSP/util/ClampedInt.h
     src/DSP/util/MathFunctions.h
     src/DSP/util/WrappedInt.h
 )
