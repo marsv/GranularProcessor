@@ -117,14 +117,15 @@ jobs:
 
     - name: Configure
       run: |
-        cmake -G "Unix Makefiles" -B build
+        cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -B build
 
     - name: Build
       run: |
-        cmake --build build --config Release
+        cmake --build build
 
     - name: Run Tests
       run: |
+        ls -la
         build/GranularProcessor_Gtest --gtest_output=xml:TestResults/gtestResults_ubuntu.xml
 
     - name: Upload Test Results

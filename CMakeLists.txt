@@ -26,12 +26,21 @@ project(GRANULAR_PROCESSOR_PLUGIN VERSION 0.0.1)
 add_subdirectory(lib/JUCE)                  # If you've put JUCE in a subdirectory called JUCE
 
 # set general output directory
-foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
-    string( TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG )
+if (CMAKE_CONFIGURATION_TYPES)
+    message("config types: ${CMAKE_CONFIGURATION_TYPES}")
+    foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
+        string( TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG )
+        set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${CMAKE_SOURCE_DIR}/bin/${OUTPUTCONFIG} )
+        set( CMAKE_LIBRARY_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${CMAKE_SOURCE_DIR}/bin/${OUTPUTCONFIG} )
+        set( CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${CMAKE_SOURCE_DIR}/bin/${OUTPUTCONFIG} )
+    endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
+else()
+    message("build type: ${CMAKE_BUILD_TYPE}")
+    string( TOUPPER OUTPUTCONFIG ${CMAKE_BUILD_TYPE} )
     set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${CMAKE_SOURCE_DIR}/bin/${OUTPUTCONFIG} )
     set( CMAKE_LIBRARY_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${CMAKE_SOURCE_DIR}/bin/${OUTPUTCONFIG} )
     set( CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${CMAKE_SOURCE_DIR}/bin/${OUTPUTCONFIG} )
-endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
+endif()
 
 # If you are building a VST2 or AAX plugin, CMake needs to be told where to find these SDKs on your
 # system. This setup should be done before calling `juce_add_plugin`.
